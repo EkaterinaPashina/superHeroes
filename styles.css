@@ -29,3 +29,12 @@ img {
 .header {
     font-weight: bold;
 }
+
+.stars {
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    width: 3rem;
+}
