@@ -38,3 +38,15 @@ img {
 .star {
     width: 3rem;
 }
+
+@media (max-width:1140px) {
+    .cards {
+        flex-direction: column;
+
+    }
+
+    .card {
+        width: 80%;
+        margin: 1rem auto;
+    }
+}

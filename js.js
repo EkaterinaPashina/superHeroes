@@ -4,7 +4,7 @@ console.log(superHeroesObj);
 
 function createCard(superhero) {
     const superheroes = document.createElement('div');
-    const superherocard = `<section class="hero">
+    const superherocard = `<section class="hero" id="${superhero.name.replaceAll(' ', '')}">
     <div class="hero__img">
         <img src="${superhero.url}" alt="${superhero.name}">
     </div>
@@ -106,3 +106,84 @@ Array.from(document.querySelectorAll(".star")).forEach(element => {
         }
     });
 });
+
+
+const userStars = document.querySelectorAll(".star");
+
+userStars.forEach(star => {
+    star.addEventListener("click", setStar, false);
+});
+
+function setStar() {
+    localStorage.setItem(this.id.slice(0, -5), this.id);
+}
+
+for (let hero of superHeroesObj) {
+    let nameOfSuperhero = hero.name.replaceAll(' ', '');
+    const star1 = `${nameOfSuperhero}Star1`;
+    const star2 = `${nameOfSuperhero}Star2`;
+    const star3 = `${nameOfSuperhero}Star3`;
+    const star4 = `${nameOfSuperhero}Star4`;
+    const star5 = `${nameOfSuperhero}Star5`;
+    if (window.localStorage.getItem(nameOfSuperhero)) {
+        if (window.localStorage.getItem(nameOfSuperhero).includes('Star1')) {
+            document.getElementById(`${star1}`).classList.add('checked');
+            document.getElementById(`${star1}`).src = './images/starchecked.png';
+            document.getElementById(`${star2}`).classList.remove('checked');
+            document.getElementById(`${star2}`).src = './images/star.png';
+            document.getElementById(`${star3}`).classList.remove('checked');
+            document.getElementById(`${star3}`).src = './images/star.png';
+            document.getElementById(`${star4}`).classList.remove('checked');
+            document.getElementById(`${star4}`).src = './images/star.png';
+            document.getElementById(`${star5}`).classList.remove('checked');
+            document.getElementById(`${star5}`).src = './images/star.png';
+        } else if (window.localStorage.getItem(nameOfSuperhero).includes('Star2')) {
+            document.getElementById(`${star1}`).classList.add('checked');
+            document.getElementById(`${star1}`).src = './images/starchecked.png';
+            document.getElementById(`${star2}`).classList.add('checked');
+            document.getElementById(`${star2}`).src = './images/starchecked.png';
+            document.getElementById(`${star3}`).classList.remove('checked');
+            document.getElementById(`${star3}`).src = './images/star.png';
+            document.getElementById(`${star4}`).classList.remove('checked');
+            document.getElementById(`${star4}`).src = './images/star.png';
+            document.getElementById(`${star5}`).classList.remove('checked');
+            document.getElementById(`${star5}`).src = './images/star.png';
+
+        } else if (window.localStorage.getItem(nameOfSuperhero).includes('Star3')) {
+            document.getElementById(`${star1}`).classList.add('checked');
+            document.getElementById(`${star1}`).src = './images/starchecked.png';
+            document.getElementById(`${star2}`).classList.add('checked');
+            document.getElementById(`${star2}`).src = './images/starchecked.png';
+            document.getElementById(`${star3}`).classList.add('checked');
+            document.getElementById(`${star3}`).src = './images/starchecked.png';
+            document.getElementById(`${star4}`).classList.remove('checked');
+            document.getElementById(`${star4}`).src = './images/star.png';
+            document.getElementById(`${star5}`).classList.remove('checked');
+            document.getElementById(`${star5}`).src = './images/star.png';
+
+        } else if (window.localStorage.getItem(nameOfSuperhero).includes('Star4')) {
+            document.getElementById(`${star1}`).classList.add('checked');
+            document.getElementById(`${star1}`).src = './images/starchecked.png';
+            document.getElementById(`${star2}`).classList.add('checked');
+            document.getElementById(`${star2}`).src = './images/starchecked.png';
+            document.getElementById(`${star3}`).classList.add('checked');
+            document.getElementById(`${star3}`).src = './images/starchecked.png';
+            document.getElementById(`${star4}`).classList.add('checked');
+            document.getElementById(`${star4}`).src = './images/starchecked.png';
+            document.getElementById(`${star5}`).classList.remove('checked');
+            document.getElementById(`${star5}`).src = './images/star.png';
+
+        } else if (window.localStorage.getItem(nameOfSuperhero).includes('Star5')) {
+            document.getElementById(`${star1}`).classList.add('checked');
+            document.getElementById(`${star1}`).src = './images/starchecked.png';
+            document.getElementById(`${star2}`).classList.add('checked');
+            document.getElementById(`${star2}`).src = './images/starchecked.png';
+            document.getElementById(`${star3}`).classList.add('checked');
+            document.getElementById(`${star3}`).src = './images/starchecked.png';
+            document.getElementById(`${star4}`).classList.add('checked');
+            document.getElementById(`${star4}`).src = './images/starchecked.png';
+            document.getElementById(`${star5}`).classList.add('checked');
+            document.getElementById(`${star5}`).src = './images/starchecked.png';
+        }
+    }
+};
